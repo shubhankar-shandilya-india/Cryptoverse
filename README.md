@@ -1,17 +1,16 @@
 # Cryptoverse
 
 ## Description 
-- A Web app which shows Trending Cryptos and Top 100 Coins Chart. It have features like User authentication, Adding/Deleting Coin from wishlist, Chart pattern of any particular coin.
+- An interactive platform displaying trending cryptocurrencies, top 100 coin charts, and detailed chart patterns for individual coins.
 
 ## Live Project
 https://cryptoverse-steel.vercel.app/
 
 ## Built With
 - [React JS](https://reactjs.org/)
-- [Material UI](https://v4.mui.com/)
+- [Tailwind CSS]([https://v4.mui.com/](https://tailwindcss.com/))
 - [Coin-gecko API](https://www.coingecko.com/en/api)
 - [Chart JS](https://reactchartjs.github.io/react-chartjs-2/#/)
-- [Firebase](https://firebase.google.com/)
 
 ## Features
 - User Authentication by Email/Google Accounts.
