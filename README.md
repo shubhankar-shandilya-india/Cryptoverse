@@ -8,7 +8,7 @@ https://cryptoverse-steel.vercel.app/
 
 ## Built With
 - [React JS](https://reactjs.org/)
-- [Tailwind CSS]([https://v4.mui.com/](https://tailwindcss.com/))
+- [Tailwind CSS]([https://v4.mui.com/](https://tailwindcss.com/])
 - [Coin-gecko API](https://www.coingecko.com/en/api)
 - [Chart JS](https://reactchartjs.github.io/react-chartjs-2/#/)
 
