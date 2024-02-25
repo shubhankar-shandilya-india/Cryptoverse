@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# Cryptoverse
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description 
+- A Web app which shows Trending Cryptos and Top 100 Coins Chart. It have features like User authentication, Adding/Deleting Coin from wishlist, Chart pattern of any particular coin.
 
-## Available Scripts
+## Live Project
+https://cryptoverse-steel.vercel.app/
 
-In the project directory, you can run:
+## Built With
+- [React JS](https://reactjs.org/)
+- [Material UI](https://v4.mui.com/)
+- [Coin-gecko API](https://www.coingecko.com/en/api)
+- [Chart JS](https://reactchartjs.github.io/react-chartjs-2/#/)
+- [Firebase](https://firebase.google.com/)
 
-### `npm start`
+## Features
+- User Authentication by Email/Google Accounts.
+- Past Performance Display of any Crypto Coin.
+- Watchlist Feature to add/del any coin for future reference.
+- Powerful and Elegant UI interface of the Web App.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Learnings From the Project
+- Got Practical knowlege while Working with APIs
+- More Knowledge about React.js and material UI
+- Increase in skill of styling a page and making it responsive.
+- Time Management and Resource Management.
+## Screenshots
+#### Homepage
+![image](https://user-images.githubusercontent.com/78155393/227704336-9f8d89a5-4e18-4e66-9772-311fdcedd880.png)
+#### Coinpage
+![image](https://user-images.githubusercontent.com/78155393/227704313-b9134990-7be2-41df-936e-49e02faa02cd.png)
+#### Empty Watchlist
+![image](https://user-images.githubusercontent.com/78155393/227704456-39d2910e-b8e8-4a4c-aff4-289799b7b797.png)
+#### Added to WatchList
+![image](https://user-images.githubusercontent.com/78155393/227704491-6e248b7e-3315-4f7b-b416-81b456e3c3ed.png)
+#### Login/Signup via Google, Gmail.
+![image](https://user-images.githubusercontent.com/78155393/227705447-83333e2b-e951-4491-bc17-7a27989e63d0.png)
