@@ -38,7 +38,7 @@ const Table = () => {
 
     // const searchquery
     return (
-        <div className='flex items-center flex-col w-[90vw] sm:w-[85vw] md:w-[80vw] '>
+        <div className='flex items-center flex-col w-[95vw] sm:w-[85vw] md:w-[80vw] '>
             <div className='w-full p-4 text-center pb-0 lg:text-2xl md:text-lg sm:text-base font-bold text-[#FAF0E6]'>Cryptocurrency Prices by Market Cap</div>
             <input className='w-full rounded-md bg-[#14161a] p-2 border-slate-600 text-white border-2 m-4' type="search" name="serach" id="" placeholder=' Search for a Crypto Coin' onChange={(e)=>setsearchquery(e.target.value)}/>
             <table className='w-full flex flex-col gap-[10px]'>
@@ -73,12 +73,12 @@ const Table = () => {
                     ))}
                 </tbody>
             </table>
-            <div className='flex justify-center gap-[10px] p-3 text-lg text-[#FAF0E6]'>
+            <div className='flex justify-center gap-[6px] sm:gap-[10px]  p-3 text-lg text-[#FAF0E6]'>
                 <span onClick={() => setthispage(page - 1)} className={page > 1 ? "cursor-pointer flex items-center" : "opacity-0"}><FaCircleChevronLeft /></span>
                 {
                     len > 0 &&
                     [...Array(len)].map((val, i) => {
-                        return <span className={`${page === i + 1 ? "bg-slate-600" : ""}cursor-pointer hover:bg-[#87CEEB] hover:text-black  rounded-full w-[25px] flex justify-center items-center`} onClick={() => setthispage(i + 1)}>{i + 1}</span>
+                        return <span className={`${page === i + 1 ? "bg-slate-600" : ""}cursor-pointer hover:bg-[#87CEEB] hover:text-black  rounded-full w-[20px] sm:w-[25px] flex justify-center items-center`} onClick={() => setthispage(i + 1)}>{i + 1}</span>
                     })
                 }
                 <span onClick={() => setthispage(page + 1)} className={page < len ? "cursor-pointer flex items-center" : "opacity-0"}><FaCircleChevronRight />
