@@ -29,11 +29,11 @@ const Carousel = () => {
     }
     return (
         <div className='Carouselimg flex-col items-center justify-center'>
-            <h1 className='text-center text-5xl p-4 font-bold text-[#87CEEB]'>Cryptoverse</h1>
+            <h1 className='text-center text-3xl sm:text-5xl p-4 font-bold text-[#87CEEB]'>Cryptoverse</h1>
         <p className=' text-center text-sm text-[#87CEEB]'>Get All The Info Regarding Your Favorite Crypto Currency</p>
             <AliceCarousel autoPlay infinite autoPlayInterval={1800} disableButtonsControls disableDotsControls responsive={{ 0: { items: 2 }, 476: { items: 3 }, 768: { items: 4 }, }} mouseTracking
                 items={arr?.map((curr) => (
-                    <div onClick={() => clicked(curr.id)} className='flex flex-col justify-center items-center pt-6 text-white'>
+                    <div onClick={() => clicked(curr.id)} className='flex flex-col justify-center items-center pt-1 sm:pt-6 text-white'>
                         <img className='h-[75px] bg-transparent' src={curr.image} key={curr.id} alt='' />
                         <p className='text-center pt-3'>{curr.name}</p>
                         <p className='p-1'>₹ {curr.current_price.toLocaleString()}</p>
