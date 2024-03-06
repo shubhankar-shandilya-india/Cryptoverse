@@ -3,16 +3,17 @@ import { useParams } from 'react-router-dom'
 import { HistoricalChart } from '../Api';
 import axios from 'axios';
 import { Line } from 'react-chartjs-2';
+import { useSelector } from 'react-redux';
 
 const Chart = () => {
-
+  const currency = useSelector(store=>store.currency.currency);
   const [arr, setarr] = useState();
   const [days, setdays] = useState(1);
   const { id } = useParams();
   useEffect(() => {
     const fetchdata = async () => {
       try {
-        const response = await axios.get(HistoricalChart(id, days));
+        const response = await axios.get(HistoricalChart(id, days, currency));
         console.log(response.data);
         setarr(response.data.prices);
       }
@@ -21,7 +22,7 @@ const Chart = () => {
       }
     }
     fetchdata();
-  }, [days]);
+  }, [days,currency]);
   return (
     <div className=' w-[97vw] lg:w-[73vw] flex flex-col gap-[2vh] pb-9 lg:pb-0 p-3 lg:pt-[5vh] text-[#FAF0E6]'>
       <Line
@@ -37,7 +38,7 @@ const Chart = () => {
           datasets: [
             {
               data: arr?.map((coin) => coin[1]),
-              label: `Price ( Past ${days} Days ) in INR`,
+              label: `Price ( Past ${days} Days ) in ${currency==='usd'?"$":"₹"}`,
               borderColor: "skyblue",
             },
           ],

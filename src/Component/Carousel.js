@@ -4,7 +4,9 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import axios from 'axios';
 import { TrendingCoins } from '../Api';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 const Carousel = () => {
+    const currency = useSelector((store)=>store.currency.currency)
     const [arr, setarr] = useState();
     let navigate = useNavigate();
     const clicked = (val) => (
@@ -13,7 +15,7 @@ const Carousel = () => {
     useEffect(() => {
         const fetchdata = async () => {
             try {
-                const response = await axios.get(TrendingCoins());
+                const response = await axios.get(TrendingCoins(currency));
                 setarr(response.data);
                 console.log(response.data);
             }
@@ -22,7 +24,7 @@ const Carousel = () => {
             }
         }
         fetchdata()
-    }, []);
+    }, [currency]);
     const getclass = (val) => {
         const numericVal = Number(val);
         return numericVal < 0 ? "text-red-600 text-xs" : "text-green-600 text-xs";
@@ -36,7 +38,7 @@ const Carousel = () => {
                     <div onClick={() => clicked(curr.id)} className='flex flex-col justify-center items-center pt-1 sm:pt-6 text-white'>
                         <img className='h-[75px] bg-transparent' src={curr.image} key={curr.id} alt='' />
                         <p className='text-center pt-3'>{curr.name}</p>
-                        <p className='p-1'>₹ {curr.current_price.toLocaleString()}</p>
+                        <p className='p-1'>{currency==='usd'?"$":"₹"} {curr.current_price.toLocaleString()}</p>
                         <span className={getclass(curr.price_change_percentage_24h_in_currency)}>{curr.price_change_percentage_24h_in_currency.toFixed(2)} %</span>
 
                     </div>

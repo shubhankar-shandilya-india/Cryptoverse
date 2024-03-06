@@ -3,8 +3,10 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { SingleCoin } from '../Api';
 import ReactHtmlParser from "react-html-parser";
+import { useSelector } from 'react-redux';
 const CoinLeftBar = () => {
     const [arr, setarr] = useState();
+    const currency = useSelector((store)=>store.currency.currency)
     const { id } = useParams();
     useEffect(() => {
         const fetchdata = async () => {
@@ -28,8 +30,8 @@ const CoinLeftBar = () => {
             <div className='w-full flex flex-col items-start'>
                 <h6 className='p-2 text-sm'>{ReactHtmlParser(arr?.description.en.split(". ")[0])}.</h6>
                 <h5 className='p-2 text-lg flex justify-start'>Rank: {arr?.market_cap_rank}</h5>
-                <h5 className='p-2 text-lg flex justify-start'>Current Price: ₹ {arr?.market_data.current_price.inr.toLocaleString()}</h5>
-                <h5 className='p-2 text-lg flex justify-start'>Market Cap: ₹ {Number((arr?.market_data.market_cap.inr / 1000000).toFixed(0)).toLocaleString()} M</h5>
+                <h5 className='p-2 text-lg flex justify-start'>Current Price: {currency==='usd'?"$":"₹"} {arr?.market_data.current_price[currency].toLocaleString()}</h5>
+                <h5 className='p-2 text-lg flex justify-start'>Market Cap: {currency==='usd'?"$":"₹"} {Number((arr?.market_data.market_cap[currency] / 1000000).toFixed(0)).toLocaleString()} M</h5>
             </div>
         </div>
     )

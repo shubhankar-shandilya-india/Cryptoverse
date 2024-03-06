@@ -3,7 +3,12 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { CoinList } from "../Api";
 import { FaCircleChevronRight, FaCircleChevronLeft } from "react-icons/fa6";
+import { useSelector } from 'react-redux';
+
 const Table = () => {
+    const currency = useSelector((store)=>store.currency.currency)
+    console.log(currency);
+    
     const [arr, setarr] = useState([]);
     const [page, setpage] = useState(1);
     const [searchquery, setsearchquery] = useState("");
@@ -19,7 +24,7 @@ const Table = () => {
     useEffect(() => {
         const fetchdata = async () => {
             try {
-                const response = await axios.get(CoinList());
+                const response = await axios.get(CoinList(currency));
                 console.log(response.data);
                 setarr(response.data);
             } catch (err) {
@@ -27,7 +32,7 @@ const Table = () => {
             }
         };
         fetchdata();
-    }, []);
+    }, [currency]);
     const setthispage = (val) => {
         if (val <= 10 && val >= 1 && val !== page) {
             setpage(val);
@@ -36,8 +41,8 @@ const Table = () => {
     }
     const len = arr.length > 0 ? Math.ceil(arr?.filter((coin) => coin.name.toLowerCase().includes(searchquery) || coin.symbol.toLowerCase().includes(searchquery)).length / 10) : 0;
 
-    // const searchquery
     return (
+        
         <div className='flex items-center flex-col w-[95vw] sm:w-[85vw] md:w-[80vw] '>
             <div className='w-full p-4 text-center pb-0 lg:text-2xl md:text-lg sm:text-base font-bold text-[#FAF0E6]'>Cryptocurrency Prices by Market Cap</div>
             <input className='w-full rounded-md bg-[#14161a] p-2 border-slate-600 text-white border-2 m-4' type="search" name="serach" id="" placeholder=' Search for a Crypto Coin' onChange={(e)=>setsearchquery(e.target.value)}/>
@@ -45,7 +50,7 @@ const Table = () => {
                 <thead className='w-full'>
                     <tr className='flex w-full justify-around bg-[#87CEEB] rounded-md text-sm sm:text-base '>
                         <th className='p-2 sm:w-[42%]  justify-start text-left pl-[1.7vw] font-bold text-black'>Coin</th>
-                        <th className='p-2 sm:w-[20%]  justify-start font-bold text-black'>Price</th>
+                        <th className='p-2 sm:w-[20%]  justify-start font-bold text-black'>Price </th>
                         <th className='p-2 sm:w-[18%]  justify-start font-bold text-black'>24h Change</th>
                         <th className='p-2 sm:w-[20%]  justify-start font-bold text-black'>Market Cap</th>
                     </tr>
@@ -62,7 +67,7 @@ const Table = () => {
                                     <button className='text-xs text-left'>{coin.symbol}</button>
                                 </div>
                             </td>
-                            <td className='p-2 w-[26%] sm:w-[20%] text-center'><button>{coin.current_price.toLocaleString()}</button></td>
+                            <td className='p-2 w-[26%] sm:w-[20%] text-center'><button>{currency==='usd'?"$":"₹"}{coin.current_price.toLocaleString()}</button></td>
                             <td className={`${getclass(coin.price_change_percentage_24h)} p-2 w-[10%] sm:w-[18%] text-center`}>
                                 <button>{coin.price_change_percentage_24h.toFixed(2)} %</button>
                             </td>
