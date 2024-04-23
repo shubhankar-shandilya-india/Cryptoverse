@@ -15,6 +15,7 @@ https://cryptoverse-steel.vercel.app/
 
 ## Features
 - It displays Past Performance Display of any Crypto Coin.
+- You can add coins in your Wishlist after login.
 - It displays Top 100 crypto-coins by their market cap
 - It displays Top Trending coins in last 24h
 - It provides Powerful and Elegant UI interface of the Web App. 
