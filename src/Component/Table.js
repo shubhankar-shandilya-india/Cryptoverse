@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 
 const Table = () => {
     const currency = useSelector((store)=>store.currency.currency)
-    console.log(currency);
     
     const [arr, setarr] = useState([]);
     const [page, setpage] = useState(1);

@@ -14,14 +14,12 @@ const Modal = ({ openmodal, closemodal }) => {
                 <div className='text-2xl font-bold flex justify-evenly w-full p-2'>
                     <button onClick={() => handleTabChange('login')}>Login</button>
                     <button onClick={() => handleTabChange('signup')}>Sign Up</button>
+                    <span className="close" onClick={closemodal}>&times;</span>
                 </div>
                 <div className="tab-content gap-[10px] p-4 w-full">
-                    {activeTab === 'login' && <Login/>}
-                    {activeTab === 'signup' && <Signup/>}
+                    {activeTab === 'login' && <Login closemodal={closemodal}/>}
+                    {activeTab === 'signup' && <Signup closemodal={closemodal}/>}
                 </div>
-                <button onClick={closemodal} >
-                    Close Modal
-                </button>
             </div>
         </div>
 

@@ -1,8 +1,10 @@
 import React from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 import Select from 'react-select';
 import { setCurrency } from '../Utils/currencySlice';
+import { selectuser, setlogoutuser } from '../Utils/userSlice';
+import { auth } from '../firebase';
 
 const Nav = ({ openmodal, closemodal, modal }) => {
     const options = [
@@ -10,8 +12,20 @@ const Nav = ({ openmodal, closemodal, modal }) => {
         { value: 'inr', label: 'INR' }
     ];
     const dispatch = useDispatch();
+    const user = useSelector(selectuser)
+    console.log(user);
     const handleCurrencyChange = (e) => {
         dispatch(setCurrency(e.value));
+    }
+    const handlelogout = (e)=>{
+        try{
+            auth.signOut()
+            dispatch(setlogoutuser())
+            alert("Logout Successfull")
+        }
+        catch(error){
+            alert(error.message);
+        }
     }
     return (
         <ul className='flex gap-[50vw] justify-around bg-[#14161a] p-2 top-0 items-center w-full sticky nav z-[1]'>
@@ -22,7 +36,12 @@ const Nav = ({ openmodal, closemodal, modal }) => {
                     defaultValue={options[1]}
                     onChange={handleCurrencyChange}
                 />
-                <button onClick={openmodal}>Login</button>
+                {
+                    user ? 
+                    <button onClick={handlelogout}>Logout</button>
+                    :
+                    <button onClick={openmodal}>Login</button>
+                }
             </div>
         </ul>
     )

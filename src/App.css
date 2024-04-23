@@ -52,11 +52,18 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  line-height: 1.4;
-  
+  line-height: 2.4;
   border-radius: 8px;
   min-width: 40vw;
+  font-size: larger;
 }
 .active-modal{
     overflow: hidden;
+}
+.close {
+  font-size: 1.7rem;
+  position: absolute;
+  right: 14px;
+  top: 10px;
+  cursor: pointer;
 }
