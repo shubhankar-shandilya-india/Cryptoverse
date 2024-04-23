@@ -11,6 +11,7 @@ https://cryptoverse-steel.vercel.app/
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Coin-gecko API](https://www.coingecko.com/en/api)
 - [Chart JS](https://reactchartjs.github.io/react-chartjs-2/#/)
+- [Redux](https://redux.js.org/)
 
 ## Features
 - It displays Past Performance Display of any Crypto Coin.
