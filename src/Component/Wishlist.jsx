@@ -28,7 +28,7 @@ const Wishlist = () => {
 
     return (
         <div className='flex items-center flex-col w-[95vw] sm:w-[85vw] md:w-[80vw] text-[#FAF0E6]'>
-            <div onClick={()=>setwishlistopen(!wishlistopen)} className='w-full p-4 text-center pb-0 lg:text-2xl md:text-lg sm:text-base font-bold text-[#FAF0E6] flex justify-center items-center' >Watchlist&nbsp;<FaChevronDown /></div>
+            <button onClick={()=>setwishlistopen(!wishlistopen)} className='w-full p-4 text-center pb-0 lg:text-2xl md:text-lg sm:text-base font-bold text-[#FAF0E6] flex justify-center items-center' >Watchlist&nbsp;<FaChevronDown /></button>
             {wishlistopen? watchlist.map((coinid) => (
                 <div className='flex gap-[1vw] pt-1'>
                     <p>{coinid}</p>
