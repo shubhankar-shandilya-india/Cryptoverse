@@ -1,13 +1,22 @@
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { auth, provider } from '../../firebase';
-import { useDispatch } from 'react-redux';
-import { setactiveuser } from '../../Utils/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectuser, setactiveuser } from '../../Utils/userSlice';
+import { fetchWatchlist } from '../../Utils/watchlistSlice';
 
 const Login = ({ closemodal }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
+    const user = useSelector(selectuser);
+    useEffect(() => {
+        if (user) {
+            dispatch(fetchWatchlist(user.user.uid));
+        }
+        console.log("aa");
+    }, [dispatch, user]);
+    
     const handlesubmit = async () => {
         try {
             const result = await signInWithEmailAndPassword(auth, email, password);
@@ -139,7 +148,6 @@ const Login = ({ closemodal }) => {
                 </div>
                 <span>Sign in with Google</span>
             </div>
-
         </div>
     )
 }

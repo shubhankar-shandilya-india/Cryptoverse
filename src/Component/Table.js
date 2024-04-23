@@ -57,8 +57,6 @@ const Table = () => {
                 <tbody className='w-full'>
                     {arr?.filter((coin)=>coin.name.toLowerCase().includes(searchquery) || coin.symbol.toLowerCase().includes(searchquery)).slice(page * 10 - 10, page * 10).map((coin) => (
                         <tr onClick={() => clicked(coin.id)} className='text-xs vs:text-base w-full flex  hover:bg-[#87CEEB] text-[#FAF0E6] hover:font-bold hover:text-black rounded-md cursor-pointer' key={coin.id}>
- 
-
                             <td className='flex items-center p-2 w-[38%] sm:w-[42%]  '>
                                 <img className='h-10 pr-2 ' src={coin.image} alt="" />
                                 <div className='flex flex-col'>
@@ -71,8 +69,6 @@ const Table = () => {
                                 <button>{coin.price_change_percentage_24h.toFixed(2)} %</button>
                             </td>
                             <td className='p-2 w-[26%] sm:w-[20%] text-center'><button>{(coin.market_cap / 1000000).toFixed(0).toLocaleString()} M</button></td>
-
-
                         </tr>
                     ))}
                 </tbody>
