@@ -57,6 +57,17 @@ body {
   min-width: 40vw;
   font-size: larger;
 }
+
+@media screen and (max-width:500px){
+  .modal-content{
+    width:85vw;
+  }
+}
+@media screen and (max-width:900px){
+  .modal-content{
+    width:70vw;
+  }
+}
 .active-modal{
     overflow: hidden;
 }

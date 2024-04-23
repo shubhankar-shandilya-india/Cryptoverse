@@ -28,7 +28,7 @@ const Nav = ({ openmodal, closemodal, modal }) => {
         }
     }
     return (
-        <ul className='flex gap-[50vw] justify-around bg-[#14161a] p-2 top-0 items-center w-full sticky nav z-[1]'>
+        <ul className='flex gap-[10vw] sm:gap-[30vw] md:gap-[60vw] justify-around bg-[#14161a] p-2 top-0 items-center w-full sticky nav z-[1]'>
             <Link className='font-bold text-[#87CEEB]' to="/">Cryptoverse</Link>
             <div className='flex text-white gap-[1vw]'>
                 <Select
