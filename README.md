@@ -4,7 +4,7 @@
 - An interactive platform displaying trending cryptocurrencies, top 100 coin charts, and detailed chart patterns for individual coins.
 
 ## Live Project
-https://cryptoverse-mrx8.vercel.app/
+https://cryptoverse-steel.vercel.app/
 
 ## Built With
 - [React JS](https://reactjs.org/)
