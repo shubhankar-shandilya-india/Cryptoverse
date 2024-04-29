@@ -74,7 +74,7 @@ body {
 .close {
   font-size: 1.7rem;
   position: absolute;
-  right: 20px;
-  top: -2px;
+  right: 1rem;
+  top: -1px;
   cursor: pointer;
 }

@@ -162,7 +162,7 @@ const Signup = ({ closemodal }) => {
                         </g>
                     </svg>
                 </div>
-                <span>Sign in with Google</span>
+                <span className='text-sm sm:text-base'>Sign in with Google</span>
             </div>
 
         </ div>
