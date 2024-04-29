@@ -6,6 +6,14 @@
 ## Live Project
 https://cryptoverse-steel.vercel.app/
 
+## Usage
+
+#### Install command
+- npm i --legacy-peer-deps
+
+#### Build Command
+- npm run build
+ 
 ## Built With
 - [React JS](https://reactjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
