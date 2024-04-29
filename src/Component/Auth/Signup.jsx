@@ -3,11 +3,15 @@ import React, { useState } from 'react'
 import { auth, provider } from '../../firebase';
 import { useDispatch } from 'react-redux';
 import { setactiveuser } from '../../Utils/userSlice';
-
+import { Icon } from 'react-icons-kit';
+import { eyeOff } from 'react-icons-kit/feather/eyeOff';
+import { eye } from 'react-icons-kit/feather/eye'
 const Signup = ({ closemodal }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [type, setType] = useState('password');
+    const [icon, setIcon] = useState(eyeOff);
 
     const dispatch = useDispatch();
     const handlesubmit = async () => {
@@ -18,7 +22,7 @@ const Signup = ({ closemodal }) => {
         try {
             const result = await createUserWithEmailAndPassword(auth, email, password);
             console.log(result);
-            alert("Signup Successful");
+            alert("Signup Successful! Now you can Login");
             closemodal();
         }
         catch (error) {
@@ -39,12 +43,29 @@ const Signup = ({ closemodal }) => {
             alert('Google sign-in error:', error.message);
         }
     };
+    const handleToggle = () => {
+        if (type === 'password') {
+            setIcon(eye);
+            setType('text')
+        } else {
+            setIcon(eyeOff)
+            setType('password')
+        }
+    }
     return (
         <div className='flex flex-col gap-[10px] items-center w-full '>
             <input type="text" placeholder='  Enter Email' className='w-full  text-black' onChange={(e) => setEmail(e.target.value)} />
-            <input type="text" placeholder='  Enter password' className='w-full text-black' onChange={(e) => setPassword(e.target.value)} />
+            <div className='w-full' style={{ position: "relative" }}>
+                <div className='w-full '>
+                    <input type={type} placeholder='  Enter password' className='w-full text-black' onChange={(e) => setPassword(e.target.value)} />
+                </div>
+                <div style={{ position: "absolute", right: 9, top: -3, filter: "invert(100%)" }} onClick={handleToggle}>
+                    <Icon icon={icon} size={20} />
+                </div>
+            </div>
+
             <input type="text" placeholder='  Confirm password' className='w-full text-black' onChange={(e) => setConfirmPassword(e.target.value)} />
-            <button onClick={handlesubmit}>Submit</button>
+            <button className='w-full' style={{ backgroundColor: "rgb(66, 133, 244)", color: "white" }} onClick={handlesubmit}>Submit</button>
             <p>OR</p>
             <div onClick={handlegooglesignin}
                 type="dark"

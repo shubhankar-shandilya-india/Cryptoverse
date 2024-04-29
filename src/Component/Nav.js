@@ -11,6 +11,7 @@ const Nav = ({ openmodal, closemodal, modal }) => {
         { value: 'usd', label: 'USD' },
         { value: 'inr', label: 'INR' }
     ];
+    
     const dispatch = useDispatch();
     const user = useSelector(selectuser)
     console.log(user);
@@ -21,7 +22,6 @@ const Nav = ({ openmodal, closemodal, modal }) => {
         try{
             auth.signOut()
             dispatch(setlogoutuser())
-            alert("Logout Successfull")
         }
         catch(error){
             alert(error.message);
@@ -35,6 +35,7 @@ const Nav = ({ openmodal, closemodal, modal }) => {
                     options={options}
                     defaultValue={options[1]}
                     onChange={handleCurrencyChange}
+                    className='text-black font-bold'
                 />
                 {
                     user ? 

@@ -28,7 +28,7 @@ const App = () => {
             <Route exact path="/coins/:id" element={<Coin />}></Route>
           </Routes>
         </Router>
-        {modal && <Modal openmodal={openmodal} closemodal={closemodal} modal={modal}/>}
+        {modal && <Modal openmodal={openmodal} closemodal={closemodal} modal={modal} />}
       </div>
     </Provider>
   )

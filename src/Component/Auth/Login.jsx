@@ -4,19 +4,32 @@ import { auth, provider } from '../../firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectuser, setactiveuser } from '../../Utils/userSlice';
 import { fetchWatchlist } from '../../Utils/watchlistSlice';
-
+import { Icon } from 'react-icons-kit';
+import { eyeOff } from 'react-icons-kit/feather/eyeOff';
+import { eye } from 'react-icons-kit/feather/eye'
 const Login = ({ closemodal }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [type, setType] = useState('password');
+    const [icon, setIcon] = useState(eyeOff);
     const dispatch = useDispatch();
     const user = useSelector(selectuser);
+    const handleToggle = () => {
+        if (type === 'password') {
+            setIcon(eye);
+            setType('text')
+        } else {
+            setIcon(eyeOff)
+            setType('password')
+        }
+    }
     useEffect(() => {
         if (user) {
             dispatch(fetchWatchlist(user.user.uid));
         }
         console.log("aa");
     }, [dispatch, user]);
-    
+
     const handlesubmit = async () => {
         try {
             const result = await signInWithEmailAndPassword(auth, email, password);
@@ -24,7 +37,7 @@ const Login = ({ closemodal }) => {
             dispatch(setactiveuser({
                 user: result.user
             }))
-            alert("Login Successful");
+            alert("Login Successful! Now you can use the wishlist feature.");
             closemodal();
         }
         catch (error) {
@@ -48,8 +61,25 @@ const Login = ({ closemodal }) => {
     return (
         <div className='flex flex-col gap-[10px] items-center w-full'>
             <input type="text" placeholder='  Enter Email' className='w-full text-black' onChange={(e) => setEmail(e.target.value)} />
-            <input type="text" placeholder='  Enter password' className='w-full text-black' onChange={(e) => setPassword(e.target.value)} />
-            <button  onClick={handlesubmit}>Submit</button>
+
+            <div className='w-full' style={{ position: "relative" }}>
+                <div className='w-full '>
+                    <input
+                        placeholder='Enter password '
+                        type={type}
+                        name="password"
+                        value={password}
+                        className='w-full text-black'
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
+                <div style={{ position: "absolute", right: 9, top: -3, filter: "invert(100%)" }} onClick={handleToggle}>
+                    <Icon icon={icon} size={20} />
+                </div>
+
+            </div>
+
+            <button className='w-full' style={{ backgroundColor: "rgb(66, 133, 244)", color: "white" }} onClick={handlesubmit}>Submit</button>
             <p>OR</p>
             <div onClick={handlegooglesignin}
                 type="dark"
@@ -148,7 +178,7 @@ const Login = ({ closemodal }) => {
                 </div>
                 <span>Sign in with Google</span>
             </div>
-        </div>
+        </div >
     )
 }
 
