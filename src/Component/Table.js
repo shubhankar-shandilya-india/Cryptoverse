@@ -78,7 +78,7 @@ const Table = () => {
                 {
                     len > 0 &&
                     [...Array(len)].map((val, i) => {
-                        return <span className={`${page === i + 1 ? "bg-slate-600" : ""}cursor-pointer hover:bg-[#87CEEB] hover:text-black  rounded-full w-[20px] sm:w-[25px] flex justify-center items-center`} onClick={() => setthispage(i + 1)}>{i + 1}</span>
+                        return <span className={`${page === i + 1 ? "bg-[#87CEEB] text-black" : "text-[#FAF0E6]"} cursor-pointer hover:bg-[#87CEEB] hover:text-black  rounded-full w-[20px] sm:w-[25px] flex justify-center items-center`} onClick={() => setthispage(i + 1)}>{i + 1}</span>
                     })
                 }
                 <span onClick={() => setthispage(page + 1)} className={page < len ? "cursor-pointer flex items-center" : "opacity-0"}><FaCircleChevronRight />
