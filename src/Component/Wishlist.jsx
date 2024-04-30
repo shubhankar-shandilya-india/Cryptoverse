@@ -44,8 +44,8 @@ const Wishlist = () => {
                 <tbody className='w-full mb-4'>
                     {
                         watchlist.map((coinid) => (
-                            <tr onClick={() => clicked(coinid)} className=' flex w-full justify-evenly  py-2 text-xs vs:text-base hover:bg-[#87CEEB] text-[#FAF0E6] hover:font-bold hover:text-black rounded-md cursor-pointer'>
-                                <td className='p-2 w-[26%] sm:w-[20%] text-center'>{coinid}</td>
+                            <tr  className=' flex w-full justify-evenly  py-2 text-xs vs:text-base hover:bg-[#87CEEB] text-[#FAF0E6] hover:font-bold hover:text-black rounded-md cursor-pointer'>
+                                <td onClick={() => clicked(coinid)} className='p-2 w-[26%] sm:w-[20%] text-center'>{coinid}</td>
                                 <td className='p-2 w-[26%] sm:w-[20%] text-center'><button onClick={()=>handleRemoveFromWatchlist(coinid)}> <FaTrash /></button></td>
                             </tr>
                         )) 
