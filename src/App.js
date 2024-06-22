@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, lazy, Suspense } from 'react'
 import "../src/App.css"
 import Nav from '../src/Component/Nav'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
-import Home from './Page/Home'
-import Coin from './Page/Coin'
 import { Provider } from 'react-redux'
 import store from './Utils/Store'
 import Modal from './Component/Modal'
+
+const Home = lazy(() => import('./Page/Home'));
+const Coin = lazy(() => import('./Page/Coin'));
+
 const App = () => {
   const [modal, setModal] = useState(false);
   const openmodal = () => {
@@ -24,8 +26,16 @@ const App = () => {
         <Router>
           <Nav openmodal={openmodal} />
           <Routes>
-            <Route exact path="/" element={<Home />}></Route>
-            <Route exact path="/coins/:id" element={<Coin />}></Route>
+            <Route exact path="/" element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <Home />
+              </Suspense>
+            }></Route>
+            <Route exact path="/coins/:id" element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <Coin />
+              </Suspense>
+            }></Route>
           </Routes>
         </Router>
         {modal && <Modal openmodal={openmodal} closemodal={closemodal} modal={modal} />}
